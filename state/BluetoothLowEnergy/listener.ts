@@ -41,7 +41,7 @@ bleMiddleware.startListening({
   actionCreator: startScanning,
   effect: (_, listenerApi) => {
     bluetoothLeManager.scanForPeripherals((device) => {
-      if (device.name === "iPhone") {
+      if (device.name != null) {
         listenerApi.dispatch(setDevice(device));
       }
     });
